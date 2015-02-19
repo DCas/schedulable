@@ -22,7 +22,7 @@ class ScheduleInput < SimpleForm::Inputs::Base
         end <<
         
         template.content_tag("div", {data: {group: 'weekly'}}) do
-          b.input :days, collection: Time::DAYS_INTO_WEEK.invert.values, label_method: lambda { |v| I18n.t("date.day_names")[Time::DAYS_INTO_WEEK[v]] || v.capitalize }, as: :check_boxes
+          b.input :days, collection: Time::DAYS_INTO_WEEK.invert.values.r, label_method: lambda { |v| v.capitalize }, as: :check_boxes
         end <<
         
         template.content_tag("div", {data: {group: 'monthly'}}) do
